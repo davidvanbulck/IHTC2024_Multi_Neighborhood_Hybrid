@@ -1,0 +1,3 @@
+/home/david/Research/Projects/IHTC/source/dlib/build/dlib/test_for_libpng_build/CMakeFiles/libpng_test.dir
+/home/david/Research/Projects/IHTC/source/dlib/build/dlib/test_for_libpng_build/CMakeFiles/edit_cache.dir
+/home/david/Research/Projects/IHTC/source/dlib/build/dlib/test_for_libpng_build/CMakeFiles/rebuild_cache.dir

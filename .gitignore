@@ -1,0 +1,30 @@
+# Ignore swap files
+*.swp
+*.swo
+*.swo.*
+
+# Ignore output files unless explicitly added
+*.o*
+*.e*
+
+# Ignore the compiled code
+ihtc
+
+# Ignore compiled code
+build/
+
+# Ignore lp files
+model.lp
+
+#ignore vscode config-files
+.vscode/
+
+#ignore debug code macos
+*.dSYM
+
+#ignore cmake FIND files
+cmake/Find*.cmake
+
+dlib/build
+
+*.sol
