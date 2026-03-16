@@ -1,6 +1,8 @@
-# IHTC2024 Validator
+# IHTC2024 Multi-Neighborhood Hybrid
 
-This repository contains the source code for the UGent Mippets Team for IHTC2024. Follow the instructions below to compile and run the source code.
+This repository contains the source code for the UGent Mippets Team for IHTC2024. Follow the instructions below to compile and run the source code. This is the source code used for the following publication:
+
+Garcia Tercero, L., Van Bulck, D., Devriesere, K., Bakker, S., & Goossens, D. (2026). A multi-neighborhood hybrid approach for the integrated healthcare timetabling competition 2024. Computers & Operations Research, 107453. https://doi.org/10.1016/j.cor.2026.107453
 
 ## Requirements
 - Linux system
@@ -43,7 +45,7 @@ Install the required additional packages.
 ```bash
 $ cd IHTC
 $ cd dlib
-$ cd mkdir build
+$ mkdir build
 $ cd build
 $ cmake ..
 $ cmake --build . --config Release
@@ -64,7 +66,7 @@ else
 ```
 ### 2 Compile
 
-To compile the validator, run the following command in the terminal:
+To compile the algorithm, run the following command in the terminal:
 
 ```bash
 $ make
