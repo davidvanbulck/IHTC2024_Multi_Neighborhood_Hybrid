@@ -10,6 +10,7 @@ InSol::~InSol() {
 Solution InSol::solve(int whichMethod) {
 
     out.Reset();
+	// Multiple methods were tested to generate an initial solution, in the final version method 0 is always used
 
     if (whichMethod < 0 || whichMethod > 5)
     {
@@ -19,9 +20,8 @@ Solution InSol::solve(int whichMethod) {
     }
     if (whichMethod == 0)
     {
-        addMandatoryPatients();
-        addNonMandatoryPatients();
-        addNurses();
+        addMandatoryPatientsRandom();
+        addNursesRandom();
     }
     else if (whichMethod == 1)
     {
@@ -524,4 +524,41 @@ vector<int> InSol::sortedNursesWorkingShifts()
     }
     return sortedNurses;
 }
+void InSol::addMandatoryPatientsRandom()
+{
+    // Sort patients on earliest due date (only returns mandatory patients)
+    vector<int> sorted = sortMandatoryPatientsDueDay();
+    vector<bool> patientsAssigned(sorted.size());
 
+    for (int d = 0; d < in.Days(); d++) {
+       
+        for (int i = 0; i < sorted.size(); i++) {
+
+            int p = sorted.at(i);
+            if (patientsAssigned.at(i)) continue;
+
+            int r = 0;
+            while (r < in.Rooms() && !out.isPatientFeasibleForRoom(p, d, r)) { r++; } // Find first feasible room
+            if (r == in.Rooms()) continue; // No feasible room found, continue
+
+            int t = 0;
+            while (t < in.OperatingTheaters() && !out.isPatientFeasibleForOT(p, t, d)) { t++; } // Find first feasible OT
+            if (t == in.OperatingTheaters()) continue; // No feasible OT found, continue
+            
+            out.AssignPatient(p, d, r, t);
+            patientsAssigned[i] = true;            
+        }
+    }
+}
+
+void InSol::addNursesRandom()
+{
+    for (int s = 0; s < in.Shifts(); s++)
+    {
+        for (int r = 0; r < in.Rooms(); r++)
+        {
+            int n = std::rand() % in.AvailableNurses(s);
+            out.AssignNurse(in.AvailableNurse(s, n), r, s);
+        }
+    }
+}
