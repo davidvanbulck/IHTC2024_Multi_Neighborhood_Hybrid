@@ -19,6 +19,8 @@ public:
 	void addNonMandatoryPatients();
 	void addNurses();
 	void addNursesContinuityOfCare();
+	void addNursesRandom();
+    void addMandatoryPatientsRandom();
 
 	int findBestRoomFromList(vector<int>& rooms, int d, int p);
 
